@@ -816,18 +816,35 @@ returns an error code.
 
 #### Exception and Interrupt Handling
 
+### Chapter 10 Advanced Programmable Interrupt Controller (APIC)
+
+- the local APIC performs two primary functions for the processor:
+  - receives interrupts from the processor’s interrupt pins, from internal sources and from an external I/O APIC (or other external interrupt controller). It sends these to the processor core for handling.
+  - in SMP, it sends and receives interprocessor interrupt (IPI) messages to and from other logical processors on the system bus. IPI messages can be used to distribute interrupts among the processors in the system or to execute system wide functions (such as, booting up processors or distributing work among a group of processors).
+
 
 
 ### Chapter 11 Memory Cache Control
 
 #### Internal caches, TLBs, and buffers
 
-- The Intel 64 and IA-32 architectures support cache, translation look aside buffers (TLBs), and a store buffer for temporary on-chip (and external) storage of instructions and data. !attach picture later
+- The Intel 64 and IA-32 architectures support cache, translation look aside buffers (TLBs), and a store buffer for temporary on-chip (and external) storage of instructions and data.
+
+<p align="center"><img src="https://i.imgur.com/75tM4Iq.png"  width="500px" height="auto"></p>
+
+<p align="center"><img src="https://i.imgur.com/ToePjTl.png"  width="500px" height="auto"></p>
 
 
 #### Methods Of Caching Available
 
 <p align="center"><img src="https://i.imgur.com/gVtPKG5.png"  width="700px" height="auto"></p>
+
+Intel 64 and IA-32 processors may implement four types of caches: __the trace cache, the level 1 (L1) cache, the level 2 (L2) cache, and the level 3 (L3) cache__:
+  - The L1 cache is divided into two sections: one section is dedicated to caching instructions (pre-decoded instructions) and the other caches data.
+  - The L2 cache is a unified data and instruction cache.
+  - Each processor core has its own L1 and L2.
+  - The L3 cache is an inclusive, unified data and instruction cache, shared by all processor cores inside a physical package. 
+  - No trace cache is implemented..
 
 #### Page Attribute Table (PAT)
 
